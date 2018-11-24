@@ -3,4 +3,6 @@
     <string name="username">username</string>
     <string name="loginButton">Login</string>
     <string name="password">password</string>
+    <string name="signUpButton">Sign Up</string>
+    <string name="ActivityTextView">Login Form</string>
 </resources>
