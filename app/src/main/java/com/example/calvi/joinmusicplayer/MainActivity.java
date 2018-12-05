@@ -10,9 +10,10 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText username;
-    private EditText password;
-    private Button loginButton;
+    private EditText mNrpEditText;
+    private EditText mPasswordEditText;
+    private Button mLoginButton;
+    private Button mRegisButton;
 
 
     @Override
@@ -20,14 +21,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        username = (EditText)findViewById(R.id.editTextUsername);
-        password = (EditText)findViewById(R.id.editTextPassword);
-        loginButton = (Button)findViewById(R.id.button);
+        mNrpEditText = (EditText)findViewById(R.id.editText);
+        mPasswordEditText = (EditText)findViewById(R.id.editText2);
+        mLoginButton = (Button)findViewById(R.id.button);
+        mRegisButton = (Button)findViewById(R.id.button3);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoginValidation(username.getText().toString(), password.getText().toString());
+                LoginValidation(mNrpEditText.getText().toString(), mPasswordEditText.getText().toString());
+            }
+        });
+
+        mRegisButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                register();
             }
         });
 
@@ -57,5 +66,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    private void register() {
+        final String nrp = mNrpEditText.getText().toString().trim();
+        final String password = mPasswordEditText.getText().toString().trim();
+        //final String email =
     }
 }
