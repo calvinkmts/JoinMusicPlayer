@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,9 @@ public class GalleryActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
     private static final String TAG = "GalleryActivity";
+    private ImageView playImage;
+    private ImageView previousImage;
+    private ImageView nextImage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +30,9 @@ public class GalleryActivity extends AppCompatActivity {
 
         getIncomingIntent();
 
+        playImage = (ImageView)findViewById(R.id.imagePlay);
+        previousImage = (ImageView)findViewById(R.id.imagePrevious);
+        nextImage = (ImageView)findViewById(R.id.imageNext);
 
         mediaPlayer = new MediaPlayer();
         String file_path = "https://docs.google.com/uc?export=download&id=1byjVHp_6hL_g_9tNhb6yJC6NFpkMZMGs";
@@ -39,6 +46,27 @@ public class GalleryActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        playImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playImage.setImageResource(R.drawable.pause);
+            }
+        });
+
+        previousImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        nextImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void getIncomingIntent(){
