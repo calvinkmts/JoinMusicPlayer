@@ -7,13 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText mNrpEditText;
     private EditText mPasswordEditText;
     private Button mLoginButton;
-    private Button mRegisButton;
+    private TextView mRegisTextView;
 
 
     @Override
@@ -24,53 +27,32 @@ public class MainActivity extends AppCompatActivity {
         mNrpEditText = (EditText)findViewById(R.id.editText);
         mPasswordEditText = (EditText)findViewById(R.id.editText2);
         mLoginButton = (Button)findViewById(R.id.button);
-        mRegisButton = (Button)findViewById(R.id.button3);
+        mRegisTextView = (TextView)findViewById(R.id.textView);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoginValidation(mNrpEditText.getText().toString(), mPasswordEditText.getText().toString());
+                Login();
             }
         });
 
-        mRegisButton.setOnClickListener(new View.OnClickListener() {
+
+        mRegisTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                register();
+                Intent intent = new Intent(getApplicationContext(), RegisActivity.class);
+                startActivity(intent);
             }
         });
 
+    }
+
+
+    private void Login() {
+
+
 
     }
 
 
-    private void LoginValidation(String inputUsername, String inputPassword) {
-
-        if (inputUsername.equals("admin") && inputPassword.equals("admin")) {
-
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
-        }
-        else {
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            // 2. Chain together various setter methods to set the dialog characteristics
-            builder.setMessage("Wrong username/password")
-                    .setTitle("Login Unsuccessful")
-                    .setCancelable(true);
-
-            // 3. Get the <code><a href="/reference/android/app/AlertDialog.html">AlertDialog</a></code> from <code><a href="/reference/android/app/AlertDialog.Builder.html#create()">create()</a></code>
-            AlertDialog dialog = builder.create();
-            dialog.show();
-
-        }
-
-    }
-
-    private void register() {
-        final String nrp = mNrpEditText.getText().toString().trim();
-        final String password = mPasswordEditText.getText().toString().trim();
-        //final String email =
-    }
 }

@@ -3,6 +3,9 @@
     <string name="nrp">nrp</string>
     <string name="loginButton">Login</string>
     <string name="password">password</string>
-    <string name="regisButton">Registration</string>
+    <string name="regisButton">Register</string>
     <string name="email">Email</string>
+    <string name="registered">Already Registered?\nClick Here</string>
+    <string name="notRegistered">Haven\'t Registered Yet?\nClick Here</string>
+    <string name="title_activity_regis">RegisActivity</string>
 </resources>

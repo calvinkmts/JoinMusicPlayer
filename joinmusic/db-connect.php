@@ -7,25 +7,12 @@
  */
 include_once 'config.php';
 
-class DbConnect {
+$connect = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    private $connect;
-
-    public function __construct()
-    {
-
-        $this->connect = mysqli_connect(DB_HOST, DB_USER, DB_USER, DB_PASSWORD, DB_NAME);
-
-        if (mysqli_connect_errno($this->connect)) {
-            echo "Unable to connect to MySQL Database: " . mysqli_connect_error();
-        }
-
-    }
-
-    /**
-     * @return mysqli
-     */
-    public function getDb(){
-        return $this->connect;
-    }
+/** @var TYPE_NAME $connect */
+if (!$connect) {
+    echo "Error: Unable to connect to MySQL." . PHP_EOL;
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    exit;
 }
