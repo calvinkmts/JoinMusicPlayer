@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "727706488564",
+    "firebase_url": "https://joinmusic-8499b.firebaseio.com",
+    "project_id": "joinmusic-8499b",
+    "storage_bucket": "joinmusic-8499b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727706488564:android:4d71183a75fd9312",
+        "android_client_info": {
+          "package_name": "com.example.calvi.joinmusicplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727706488564-2156c2v8uqfnhef5pbcousl8e1e6astn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.calvi.joinmusicplayer",
+            "certificate_hash": "74690cf16b7858179e5c248f7e89b9fc0f27a41c"
+          }
+        },
+        {
+          "client_id": "727706488564-7cihu32555lk7uvo0gjtkomo3ffa1ofs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdgQxeA-urll5ds2auR0Bpa3RVokFaOsw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727706488564-7cihu32555lk7uvo0gjtkomo3ffa1ofs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
