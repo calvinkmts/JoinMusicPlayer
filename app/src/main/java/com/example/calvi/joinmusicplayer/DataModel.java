@@ -2,7 +2,7 @@ package com.example.calvi.joinmusicplayer;
 
 public class DataModel {
     public String title;
-    public String duration;
+    public String image;
     public String artist;
     public String album;
     public String url;
@@ -11,7 +11,7 @@ public class DataModel {
 
     public void setTitle(String title) { this.title = title; }
 
-    public String getDuration() { return duration; }
+    public String getImage() { return image; }
 
     public String getArtist() { return artist; }
 
@@ -19,7 +19,7 @@ public class DataModel {
 
     public String getAlbum() { return album; }
 
-    public void setDuration(String duration) { this.duration = duration; }
+    public void setImage(String duration) { this.image = duration; }
 
     public void setArtist(String artist) { this.artist = artist; }
 
