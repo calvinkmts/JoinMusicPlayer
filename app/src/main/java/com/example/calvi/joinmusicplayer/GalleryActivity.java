@@ -46,6 +46,8 @@ public class GalleryActivity extends AppCompatActivity {
         nextButton = (FloatingActionButton) findViewById(R.id.nextButton);
         previousButton = (FloatingActionButton) findViewById(R.id.previousButton);
 
+        playButton.setImageResource(android.R.drawable.ic_media_pause);
+
         textViewTitle = (TextView) findViewById(R.id.image_description);
         ImageViewAlbum = (ImageView) findViewById(R.id.image);
         mSeekBar = (SeekBar) findViewById(R.id.seekBar);
@@ -82,11 +84,11 @@ public class GalleryActivity extends AppCompatActivity {
 
                 if (isPlaying) {
                     isPlaying = false;
-                    playButton.setImageResource(android.R.drawable.ic_media_pause);
+                    playButton.setImageResource(android.R.drawable.ic_media_play);
                     mediaPlayer.pause();
                 } else {
                     isPlaying = true;
-                    playButton.setImageResource(android.R.drawable.ic_media_play);
+                    playButton.setImageResource(android.R.drawable.ic_media_pause);
                     mediaPlayer.start();
                 }
 
@@ -180,41 +182,41 @@ public class GalleryActivity extends AppCompatActivity {
         mediaPlayer.reset();
         position++;
         if (position == songList.size()) {
-            mediaPlayer.release();
-        } else {
-            file_path = songList.get(position).getUrl();
+            position = 0;
+        }
+        file_path = songList.get(position).getUrl();
 
-            textViewTitle.setText(songList.get(position).getTitle());
+        textViewTitle.setText(songList.get(position).getTitle());
+        setImage(songList.get(position).getImage(), songList.get(position).getTitle());
 
-            try {
-                mediaPlayer.setDataSource(file_path);
-                mediaPlayer.prepare();
-                mediaPlayer.start();
+        try {
+            mediaPlayer.setDataSource(file_path);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     private void playPrevious() {
-        mediaPlayer.pause();
+        mediaPlayer.reset();
         position--;
-        if (position == 0) {
-            mediaPlayer.release();
-        } else {
-            file_path = songList.get(position).getUrl();
+        if (position == -1) {
+            position = songList.size() - 1;
+        }
+        file_path = songList.get(position).getUrl();
 
-            textViewTitle.setText(songList.get(position).getTitle());
+        textViewTitle.setText(songList.get(position).getTitle());
+        setImage(songList.get(position).getImage(), songList.get(position).getTitle());
 
-            try {
-                mediaPlayer.setDataSource(file_path);
-                mediaPlayer.prepare();
-                mediaPlayer.start();
+        try {
+            mediaPlayer.setDataSource(file_path);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
